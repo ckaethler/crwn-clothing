@@ -5,7 +5,7 @@ import { createStructuredSelector } from 'reselect';
 import { auth, createUserProfileDocument } from './Firebase/Firebase.Utils';
 
 import HomePage from './Pages/Homepage/Homepage.Component';
-import ShopPage from './Pages/Shop/ShopPage.Component';
+import ShopPage from './Pages/Shop/Shop.Component';
 import SignInSignUp from './Pages/SignInSignUp/SignInSignUp.Component'
 import CheckoutPage from './Pages/Checkout/Checkout.Component';
 
