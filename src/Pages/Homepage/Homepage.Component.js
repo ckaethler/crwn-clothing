@@ -1,6 +1,8 @@
 import React from 'react';
-import './Homepage.scss';
-import Directory from '../../Components/Directory/Directory';
+
+import Directory from '../../Components/Directory/Directory.Component';
+
+import './Homepage.Styles.scss';
 
 const HomePage = ({history}) => {
     return (

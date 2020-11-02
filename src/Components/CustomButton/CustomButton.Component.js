@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './CustomButton.scss';
+import './CustomButton.Styles.scss';
 
 const CustomButton = ({ children, isGoogleSignIn, inverted, ...otherProps }) => {
     return (

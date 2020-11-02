@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './FormInput.scss';
+import './FormInput.Styles.scss';
 
 const FormInput = ({handleChange, label, ...otherProps}) => {
     if (label) {

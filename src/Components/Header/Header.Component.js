@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import { auth } from '../../Firebase/Firebase.utils';
-import CartIcon from '../CartIcon/CartIcon';
-import CartDropdown from '../CartDropdown/CartDropdown';
-import { SelectCartHidden } from '../../Redux/Cart/CartSelectors';
-import { selectCurrentUser } from '../../Redux/User/UserSelector'
+import { auth } from '../../Firebase/Firebase.Utils';
+import CartIcon from '../CartIcon/CartIcon.Component';
+import CartDropdown from '../CartDropdown/CartDropdown.Component';
+import { SelectCartHidden } from '../../Redux/Cart/Cart.Selectors';
+import { selectCurrentUser } from '../../Redux/User/User.Selectors';
 
 import { ReactComponent as Logo} from '../../assets/images/icons/crown.svg';
-import './Header.scss';
+import './Header.Styles.scss';
 
 const Header = ({ currentUser, hidden }) => {
     return (
