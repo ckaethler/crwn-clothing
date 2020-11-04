@@ -3,16 +3,21 @@ import { connect } from 'react-redux';
 
 import { SelectCollection } from '../../Redux/Shop/Shop.Selectors'
 
-// import CollectionItem from 
-//     '../../Components/CollectionItem/CollectionItem.Component';
+import CollectionItem from 
+    '../../Components/CollectionItem/CollectionItem.Component';
 
 import './Collection.Styles.scss';
 
 const CollectionPage = ({ collection }) => {
-    console.log(collection)
+    const { title, items } = collection;
     return (
         <div className="collection-page">
-            <h1>Collection PAGE</h1>
+            <h2 className="title">{ title }</h2>
+            <div className="items">
+            {
+                items.map(item => <CollectionItem key={item.id} item={item} />)
+            }
+            </div>
         </div>
     )
 };
