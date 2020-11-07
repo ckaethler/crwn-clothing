@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
@@ -10,32 +9,45 @@ import { SelectCartHidden } from '../../Redux/Cart/Cart.Selectors';
 import { selectCurrentUser } from '../../Redux/User/User.Selectors';
 
 import { ReactComponent as Logo} from '../../assets/images/icons/crown.svg';
-import './Header.Styles.scss';
+import { TopNavContainer, LogoContainer, NavLinksContainer, NavLinkContainer } 
+    from './Header.Styles';
 
 const Header = ({ currentUser, hidden }) => {
     return (
-        <div className="header">
-            <Link className="logo-container" to="/">
+        <TopNavContainer>
+
+            {/* LOGO */}
+            <LogoContainer to="/">
                 <Logo className="logo" />
-            </Link>
-            <div className="options">
-                <Link className="option" to="/shop">
-                    SHOP
-                </Link>
-                <Link className="option" to="/shop">
-                    CONTACT
-                </Link>
+            </LogoContainer>
+
+            {/* TOP NAVIGATION LINKS */}
+            <NavLinksContainer>
+                <NavLinkContainer to="/shop">SHOP</NavLinkContainer>
+                <NavLinkContainer to="/shop">CONTACT</NavLinkContainer>
+
+                {/* SETS LINK ACCORDING TO USERS AUTHENTICATION STATUS */}
                 {
                     currentUser ? 
-                    <div 
-                        className='option' 
-                        onClick={() => auth.signOut()}>SIGN OUT</div>
-                    : <Link className='option' to='/signin'>SIGN IN</Link>
+                    <NavLinkContainer 
+                        as='div' 
+                        onClick={() => auth.signOut()}
+                    >
+                        SIGN OUT
+                    </NavLinkContainer>
+                    : 
+                    <NavLinkContainer 
+                        to='/signin'
+                    >SIGN IN</NavLinkContainer>
                 }
+
+                {/* CART */}
                 <CartIcon />
-            </div>
+            </NavLinksContainer>
+
+            {/* TOGGLES WHEN USER CLICKS CART DROPDOWN */}
             { hidden ? null: <CartDropdown />}
-        </div>
+        </TopNavContainer>
     );
 }
 

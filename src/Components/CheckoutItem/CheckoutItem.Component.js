@@ -3,37 +3,41 @@ import { connect } from 'react-redux';
 
 import { ClearItemFromCart, AddItem, RemoveItem } from 
     '../../Redux/Cart/Cart.Actions';
-
-import './CheckoutItem.Styles.scss';
+    
+import { CheckoutItemContainer, ImageContainer, NameContainer, 
+    QuantityContainer, ArrowContainer, ValueContainer, PriceContainer,
+    RemoveContainer } 
+    from './CheckoutItem.Styles';
 
 const CheckoutItem = ({ cartItem, ClearItem, AddItem, RemoveItem }) => {
+    
     const {price, imageUrl, name, quantity} = cartItem;
+
     return (
-        <div className="checkout-item">
-            <div className="image-container">
+        <CheckoutItemContainer>
+            <ImageContainer>
                 <img alt="item" src={imageUrl} />
-            </div>
+            </ImageContainer>
 
-            <span className='name'>{name}</span>
-            <span className='quantity'>
-                <div 
-                    className="arrow" 
-                    onClick={() => RemoveItem(cartItem)
-                    }
-                >&#10094;</div>
-                <span className="value">{quantity}</span>
-                <div 
-                    className="arrow"
-                    onClick={() => AddItem(cartItem)}
-                >&#10095;</div>
-            </span>
+            <NameContainer>{name}</NameContainer>
+            <QuantityContainer>
 
-            <span className='price'>${price}</span>
-            <div 
-                className='remove-button' 
-                onClick={() => ClearItem(cartItem)}
-            >&#10005;</div>
-        </div>
+                <ArrowContainer onClick={() => RemoveItem(cartItem)}>
+                    &#10094;
+                </ArrowContainer>
+
+                <ValueContainer>{quantity}</ValueContainer>
+
+                <ArrowContainer onClick={() => AddItem(cartItem)}>
+                    &#10095;
+                </ArrowContainer>
+            </QuantityContainer>
+
+            <PriceContainer>${price}</PriceContainer>
+            <RemoveContainer onClick={() => ClearItem(cartItem)}>
+                &#10005;
+            </RemoveContainer>
+        </CheckoutItemContainer>
     )
 }
 
