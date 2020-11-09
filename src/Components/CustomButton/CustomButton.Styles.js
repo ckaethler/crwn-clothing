@@ -39,7 +39,6 @@ const GoogleSignInStyles = css`
 
 // DECIDES BUTTON STYLE BASED ON PROPS PASSED IN
 const GetButtonStyles = ({ isGoogleSignIn, inverted, ...otherProps }) => {
-    console.log(otherProps);
     if (isGoogleSignIn) return GoogleSignInStyles;
     else if (inverted) return InvertedButtonStyles;
     else return ButtonStyles;
